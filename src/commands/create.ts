@@ -1,6 +1,8 @@
+import type { TemConfig } from '../type'
 import process from 'node:process'
-import pc from 'picocolors'
+import prompts from '@posva/prompts'
 
+import pc from 'picocolors'
 import * as arrays from '../arrays'
 import { runCli } from '../runner'
 
@@ -11,12 +13,18 @@ runCli(async () => {
     console.log(
       pc.green('What should be done?'),
     )
-    return
   }
 
-  console.log(
-    pc.green(`How are ${pc.italic(`you`)} doing?`),
-  )
+  const { projectName } = await prompts({
+    type: 'text',
+    name: 'projectName',
+    initial: 'my-tauri-app',
+    message: 'Plase input your project name',
+  })
 
-  console.log(process.argv.splice(2).filter(Boolean))
+  const configs = {
+    PROJECT: projectName,
+  } satisfies TemConfig
+
+  console.log('configs ==> ', configs)
 })

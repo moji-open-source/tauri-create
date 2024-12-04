@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@posva/prompts':
+        specifier: ^2.4.4
+        version: 2.4.4
       picocolors:
         specifier: ^1.1.1
         version: 1.1.1
@@ -878,6 +881,10 @@ packages:
   '@pkgr/core@0.1.1':
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@posva/prompts@2.4.4':
+    resolution: {integrity: sha512-8aPwklhbSV2VN/NQMBNFkuo8+hlJVdcFRXp4NCIfdcahh3qNEcaSoD8qXjru0OlN1sONJ7le7p6+YUbALaG6Mg==}
+    engines: {node: '>= 14'}
 
   '@rollup/plugin-alias@5.1.1':
     resolution: {integrity: sha512-PR9zDb+rOzkRb2VD+EuKB7UC41vU5DIwZ5qqCpk0KJudcWAyi8rvYOhS7+L5aZCspw1stTViLgN5v6FF1p5cgQ==}
@@ -2063,6 +2070,10 @@ packages:
 
   kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
+    engines: {node: '>=6'}
+
+  kleur@4.1.5:
+    resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
   levn@0.4.1:
@@ -3775,6 +3786,11 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
+  '@posva/prompts@2.4.4':
+    dependencies:
+      kleur: 4.1.5
+      sisteransi: 1.0.5
+
   '@rollup/plugin-alias@5.1.1(rollup@3.29.5)':
     optionalDependencies:
       rollup: 3.29.5
@@ -5107,6 +5123,8 @@ snapshots:
       json-buffer: 3.0.1
 
   kleur@3.0.3: {}
+
+  kleur@4.1.5: {}
 
   levn@0.4.1:
     dependencies:
