@@ -1,9 +1,10 @@
 {
-  "name": "@moji/tauri-create",
+  "name": "create-moji-tauri",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@9.14.4",
   "description": "A CLI tool for quickly generating Tauri project templates",
+  "author": "Clover You",
   "license": "MIT",
   "homepage": "https://github.com/moji-open-source/tauri-create#readme",
   "repository": {
@@ -36,7 +37,7 @@
     }
   },
   "bin": {
-    "create": "./bin/create.mjs"
+    "create-moji-tauri": "./bin/create.mjs"
   },
   "files": [
     "dist"
