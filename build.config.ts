@@ -1,4 +1,3 @@
-import { basename } from 'node:path'
 import { globSync } from 'tinyglobby'
 import { defineBuildConfig } from 'unbuild'
 
@@ -8,7 +7,7 @@ export default defineBuildConfig({
     { expandDirectories: false },
   ).map(i => ({
     input: i.slice(0, -3),
-    name: basename(i).slice(0, -3),
+    name: i.replace(/^src\//, '').slice(0, -3),
   })),
   declaration: true,
   clean: true,

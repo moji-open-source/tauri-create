@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import prompts from '@posva/prompts'
 import minimist from 'minimist'
 import colors from 'picocolors'
@@ -26,8 +27,6 @@ const defaultTargetDir = 'tauri-project'
 runCli(async () => {
   const argTargetDir = argv._[0]
   let argTemplate = argv.template || argv.t
-
-  console.log('argTemplate', argTemplate)
 
   let targetDir = argTargetDir || defaultTargetDir
 
@@ -114,8 +113,6 @@ runCli(async () => {
   const templateDir = getTemplateDir(argTemplate)
   const root = path.join(cwd, targetDir)
 
-  console.log(templateDir)
-
   if (!fs.existsSync(templateDir)) {
     console.error(`${red('✖')} Invalid template name: ${argTemplate}`)
     process.exit(1)
@@ -135,7 +132,8 @@ runCli(async () => {
 
 function getTemplateDir(tem: string) {
   return path.resolve(
-    process.cwd(),
+    fileURLToPath(import.meta.url),
+    '../../..',
     'templates',
     tem,
   )
