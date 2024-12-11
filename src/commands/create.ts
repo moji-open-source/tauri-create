@@ -1,7 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import { fileURLToPath } from 'node:url'
 import prompts from '@posva/prompts'
 import minimist from 'minimist'
 import colors from 'picocolors'
@@ -134,8 +133,7 @@ runCli(async () => {
 
 function getTemplateDir(tem: string) {
   return path.resolve(
-    fileURLToPath(import.meta.url),
-    '../../..',
+    process.cwd(),
     'templates',
     tem,
   )
