@@ -4,7 +4,7 @@ import antfu from '@antfu/eslint-config'
 export default antfu(
   {
     type: 'lib',
-    ignores: ['template/*'],
+    ignores: ['templates/*'],
   },
   {
     rules: {

@@ -136,7 +136,7 @@ function getTemplateDir(tem: string) {
   return path.resolve(
     fileURLToPath(import.meta.url),
     '../../..',
-    'template',
+    'templates',
     tem,
   )
 }

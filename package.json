@@ -40,7 +40,8 @@
     "create-moji-tauri": "./bin/create.mjs"
   },
   "files": [
-    "dist"
+    "dist",
+    "templates"
   ],
   "scripts": {
     "build": "unbuild",
