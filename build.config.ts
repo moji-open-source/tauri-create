@@ -12,7 +12,12 @@ export default defineBuildConfig({
   })),
   declaration: true,
   clean: true,
+  failOnWarn: false,
   rollup: {
+    inlineDependencies: true,
     emitCJS: true,
+    esbuild: {
+      minify: true,
+    },
   },
 })
