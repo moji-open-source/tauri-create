@@ -114,6 +114,8 @@ runCli(async () => {
   const templateDir = getTemplateDir(argTemplate)
   const root = path.join(cwd, targetDir)
 
+  console.log(templateDir)
+
   if (!fs.existsSync(templateDir)) {
     console.error(`${red('✖')} Invalid template name: ${argTemplate}`)
     process.exit(1)
