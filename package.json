@@ -1,7 +1,7 @@
 {
   "name": "create-clv-tauri",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1-beta.1",
   "packageManager": "pnpm@9.14.4",
   "description": "A CLI tool for quickly generating Tauri project templates",
   "author": "Clover You",
