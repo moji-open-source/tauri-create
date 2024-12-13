@@ -27,6 +27,8 @@ const defaultTargetDir = 'tauri-project'
 let tempConfig: Configuration = {}
 
 runCli(async () => {
+  console.log(process.env.APP_ROOT_PATH)
+
   const argTargetDir = argv._[0]
   let argTemplate: string = argv.template || argv.t
 
