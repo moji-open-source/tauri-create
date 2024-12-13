@@ -1,10 +1,12 @@
 {
   "nextjs-ts": {
-    "file-map": {
-      "_.gitignore": ".gitignore",
-      "_.lintstagedrc.mjs": ".lintstagedrc.mjs",
+    "renameFile": {
+      "_gitignore": ".gitignore",
+      "_lintstagedrc.mjs": ".lintstagedrc.mjs",
       "_eslint.config.mjs": "eslint.config.mjs",
-      "_tailwind.config.ts": "tailwind.config.ts"
+      "_tailwind.config.ts": "tailwind.config.ts",
+      "_tsconfig.json": "tsconfig.json",
+      "_pre-commit-config.yaml": ".pre-commit-config.yaml"
     }
   }
 }

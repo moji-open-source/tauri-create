@@ -1,11 +1,13 @@
-import fs from 'node:fs'
+import type { Configuration } from '../type'
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import prompts from '@posva/prompts'
+import appRoot from 'app-root-path'
+import fs from 'fs-extra'
 import minimist from 'minimist'
-import colors from 'picocolors'
 
+import colors from 'picocolors'
 import * as arrays from '../arrays'
 import { tryExecute } from '../errors'
 import { runCli } from '../runner'
@@ -23,6 +25,8 @@ const argv = minimist<{
 
 const cwd = process.cwd()
 const defaultTargetDir = 'tauri-project'
+
+let tempConfig: Configuration = {}
 
 runCli(async () => {
   const argTargetDir = argv._[0]
@@ -110,6 +114,8 @@ runCli(async () => {
 
   const { overwrite } = result
 
+  tempConfig = getTempConf()[argTemplate]
+
   const templateDir = getTemplateDir(argTemplate)
   const root = path.join(cwd, targetDir)
 
@@ -155,7 +161,8 @@ function copyDir(targetPath: string, tarPath: string) {
     fs.mkdirSync(tarPath)
 
   for (const file of fs.readdirSync(targetPath)) {
-    copyFile(path.join(targetPath, file), path.join(tarPath, file))
+    const { renameFile = {} } = tempConfig
+    copyFile(path.join(targetPath, file), path.join(tarPath, renameFile[file] ?? file))
   }
 }
 
@@ -181,4 +188,8 @@ function emptyDir(dir: string) {
 
     fs.rmSync(path.resolve(dir, file), { recursive: true, force: true })
   }
+}
+
+function getTempConf(): Record<string, Configuration> {
+  return fs.readJsonSync(appRoot.resolve('templates/config.json'), 'utf-8') ?? {}
 }

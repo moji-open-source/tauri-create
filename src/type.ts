@@ -1,9 +1,3 @@
-/**
- * template configurations
- */
-export interface TemConfig {
-  /**
-   * project name
-   */
-  PROJECT: string
+export interface Configuration {
+  renameFile?: Record<string, string>
 }
