@@ -61,8 +61,7 @@ runCli(async () => {
           name: 'template',
           message: 'Please select template you want to create',
           choices: [
-            { title: 'Nextjs', value: 'nextjs-ts' },
-            { title: 'Nuxt With Typescript', value: 'nuxt-ts' },
+            { title: 'Nextjs With Typescript', value: 'nextjs-ts' },
           ],
           onState: (state) => {
             argTemplate = state.value
