@@ -2,8 +2,8 @@ import type { Choice } from '@posva/prompts'
 import type { Configuration } from '../type'
 import path from 'node:path'
 import process from 'node:process'
-import { fileURLToPath } from 'node:url'
 import prompts from '@posva/prompts'
+import appRoot from 'app-root-path'
 import fs from 'fs-extra'
 import minimist from 'minimist'
 
@@ -128,8 +128,7 @@ runCli(async () => {
 
 function getTemplateDir(tem: string) {
   return path.resolve(
-    fileURLToPath(import.meta.url),
-    '../../..',
+    appRoot.path,
     'templates',
     tem,
   )
