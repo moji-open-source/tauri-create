@@ -1,13 +1,14 @@
+import type { Choice } from '@posva/prompts'
 import type { Configuration } from '../type'
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import prompts from '@posva/prompts'
-import appRoot from 'app-root-path'
 import fs from 'fs-extra'
 import minimist from 'minimist'
 
 import colors from 'picocolors'
+import { config } from '../../templates/config'
 import * as arrays from '../arrays'
 import { tryExecute } from '../errors'
 import { runCli } from '../runner'
@@ -30,7 +31,7 @@ let tempConfig: Configuration = {}
 
 runCli(async () => {
   const argTargetDir = argv._[0]
-  let argTemplate = argv.template || argv.t
+  let argTemplate: string = argv.template || argv.t
 
   let targetDir = argTargetDir || defaultTargetDir
 
@@ -60,9 +61,7 @@ runCli(async () => {
           type: 'select',
           name: 'template',
           message: 'Please select template you want to create',
-          choices: [
-            { title: 'Nextjs With Typescript', value: 'nextjs-ts' },
-          ],
+          choices: () => Object.values(config).map(it => it.prompt!).filter(isValidChoice),
           onState: (state) => {
             argTemplate = state.value
           },
@@ -75,6 +74,7 @@ runCli(async () => {
             {
               title: 'Cancel operation',
               value: 'no',
+
             },
             {
               title: 'Remove existing files and continue',
@@ -113,7 +113,7 @@ runCli(async () => {
 
   const { overwrite } = result
 
-  tempConfig = getTempConf()[argTemplate]
+  tempConfig = config[argTemplate]
 
   const templateDir = getTemplateDir(argTemplate)
   const root = path.join(cwd, targetDir)
@@ -189,6 +189,10 @@ function emptyDir(dir: string) {
   }
 }
 
-function getTempConf(): Record<string, Configuration> {
-  return fs.readJsonSync(appRoot.resolve('templates/config.json'), 'utf-8') ?? {}
+function isValidChoice(choice?: Choice) {
+  return choice && isBlank(choice.value) && isBlank(choice.title)
+}
+
+function isBlank(str?: string) {
+  return !str || /^\s*$/.test(str)
 }
