@@ -16,4 +16,15 @@ export const config = {
       description: 'Nextjs With Typescript',
     },
   },
+  'svelte-ts': {
+    renameFile: {
+      '_gitignore': '.gitignore',
+      '_tsconfig.json': 'tsconfig.json',
+    },
+    prompt: {
+      title: 'Svelte With Typescript',
+      value: 'svelte-ts',
+      description: 'Svelte With Typescript',
+    },
+  },
 } as Record<string, Configuration>
