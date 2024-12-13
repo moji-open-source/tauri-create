@@ -2,8 +2,8 @@ import type { Choice } from '@posva/prompts'
 import type { Configuration } from '../type'
 import path from 'node:path'
 import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import prompts from '@posva/prompts'
-import appRoot from 'app-root-path'
 import fs from 'fs-extra'
 import minimist from 'minimist'
 
@@ -27,8 +27,6 @@ const defaultTargetDir = 'tauri-project'
 let tempConfig: Configuration = {}
 
 runCli(async () => {
-  console.log(process.env.APP_ROOT_PATH)
-
   const argTargetDir = argv._[0]
   let argTemplate: string = argv.template || argv.t
 
@@ -130,7 +128,8 @@ runCli(async () => {
 
 function getTemplateDir(tem: string) {
   return path.resolve(
-    appRoot.path,
+    fileURLToPath(import.meta.url),
+    '../../..',
     'templates',
     tem,
   )
