@@ -8,15 +8,12 @@ import fs from 'fs-extra'
 import minimist from 'minimist'
 
 import colors from 'picocolors'
+
 import { config } from '../../templates/config'
-import * as arrays from '../arrays'
 import { tryExecute } from '../errors'
 import { runCli } from '../runner'
 
-const {
-  green,
-  red,
-} = colors
+const { red } = colors
 
 const argv = minimist<{
   template?: string
@@ -34,12 +31,6 @@ runCli(async () => {
   let argTemplate: string = argv.template || argv.t
 
   let targetDir = argTargetDir || defaultTargetDir
-
-  if (arrays.isEmpty(argv._)) {
-    console.log(
-      green('What should be done?'),
-    )
-  }
 
   let result: prompts.Answers<
     'projectName' | 'overwrite' // | 'packageName' | 'framework' | 'variant'
