@@ -51,7 +51,7 @@ runCli(async () => {
           },
         },
         {
-          type: 'select',
+          type: () => argTemplate ? null : 'select',
           name: 'template',
           message: 'Please select template you want to create',
           choices: () => Object.values(config).map(it => it.prompt!).filter(isValidChoice),
