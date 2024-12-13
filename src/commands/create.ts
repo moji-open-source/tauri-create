@@ -13,7 +13,24 @@ import { config } from '../../templates/config'
 import { tryExecute } from '../errors'
 import { runCli } from '../runner'
 
-const { red } = colors
+const {
+  red,
+  blue,
+  bold,
+} = colors
+
+function printLogo() {
+  console.log(blue(bold(`
+      ███╗   ███╗ ██████╗      ██╗██╗
+      ████╗ ████║██╔═══██╗     ██║██║
+      ██╔████╔██║██║   ██║     ██║██║
+      ██║╚██╔╝██║██║   ██║██   ██║██║
+      ██║ ╚═╝ ██║╚██████╔╝╚█████╔╝██║
+      ╚═╝     ╚═╝ ╚═════╝  ╚════╝ ╚═╝
+                                                                
+     Create your Tauri app with ease!
+  `)))
+}
 
 const argv = minimist<{
   template?: string
@@ -27,6 +44,7 @@ const defaultTargetDir = 'tauri-project'
 let tempConfig: Configuration = {}
 
 runCli(async () => {
+  printLogo()
   const argTargetDir = argv._[0]
   let argTemplate: string = argv.template || argv.t
 
