@@ -6,31 +6,14 @@ import { fileURLToPath } from 'node:url'
 import prompts from '@posva/prompts'
 import fs from 'fs-extra'
 import minimist from 'minimist'
-
 import colors from 'picocolors'
 
 import { config } from '../../templates/config'
+import { banner } from '../banner'
 import { tryExecute } from '../errors'
 import { runCli } from '../runner'
 
-const {
-  red,
-  blue,
-  bold,
-} = colors
-
-function printLogo() {
-  console.log(blue(bold(`
-      ███╗   ███╗ ██████╗      ██╗██╗
-      ████╗ ████║██╔═══██╗     ██║██║
-      ██╔████╔██║██║   ██║     ██║██║
-      ██║╚██╔╝██║██║   ██║██   ██║██║
-      ██║ ╚═╝ ██║╚██████╔╝╚█████╔╝██║
-      ╚═╝     ╚═╝ ╚═════╝  ╚════╝ ╚═╝
-                                                                
-     Create your Tauri app with ease!
-  `)))
-}
+const { red } = colors
 
 const argv = minimist<{
   template?: string
@@ -44,7 +27,8 @@ const defaultTargetDir = 'tauri-project'
 let tempConfig: Configuration = {}
 
 runCli(async () => {
-  printLogo()
+  banner()
+
   const argTargetDir = argv._[0]
   let argTemplate: string = argv.template || argv.t
 
