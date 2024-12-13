@@ -180,7 +180,7 @@ function emptyDir(dir: string) {
 }
 
 function isValidChoice(choice?: Choice) {
-  return choice && isBlank(choice.value) && isBlank(choice.title)
+  return choice && !isBlank(choice.value) && !isBlank(choice.title)
 }
 
 function isBlank(str?: string) {
