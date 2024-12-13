@@ -1,39 +1,34 @@
 # Tauri Create <a href="https://npmjs.com/package/create-moji-tauri"><img src="https://img.shields.io/npm/v/create-moji-tauri" alt="npm package"></a>
 
-<p align='center'>
-<b>English</b> | <a href="https://github.com/moji-open-source/tauri-create/blob/main/README.zh-CN.md">简体中文</a>
-<!-- Contributors: Thanks for getting interested, however we DON'T accept new translations to the README, thanks. -->
-</p>
+## 项目搭建
 
-## Scaffolding your project
-
-With NPM:
+使用 NPM:
 
 ```bash
 npm create moji-tauri@latest
 ```
 
-With Yarn:
+使用 Yarn:
 
 ```bash
 yarn create moji-tauri@latest
 ```
 
-With PNPM:
+使用 PNPM:
 
 ```bash
 pnpm create moji-tauri@latest
 ```
 
-With Bun:
+使用 Bun:
 
 ```bash
 bun create moji-tauri@latest
 ```
 
-Then follow the prompts!
+按照提示进行操作！
 
-You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a Nextjs + TypeScript tauri project, run:
+您也可以通过额外的命令行选项直接指定您想要使用的项目名称和模板。例如，要搭建一个 Nextjs + TypeScript tauri 项目，请运行：
 
 ```bash
 # npm 7+, extra double-dash is needed:
@@ -49,11 +44,11 @@ pnpm create moji-tauri@latest my-tauri-app --template nextjs-ts
 bun create moji-tauri@latest my-tauri-app --template nextjs-ts
 ```
 
-Currently supported template presets include:
+当前支持的模板预设有：
 
 - `nextjs-ts`
 - `svelte-ts`
 
-## Matter
+## 模板占位符
 
-- `${{PROJECT}}` - project name, The default name is my-tauri-app
+- `${{PROJECT}}` - 项目名称，默认名称为 my-tauri-app
