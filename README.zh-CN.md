@@ -48,6 +48,7 @@ bun create moji-tauri@latest my-tauri-app --template nextjs-ts
 
 - `nextjs-ts`
 - `svelte-ts`
+- `vue-ts`
 
 ## 模板占位符
 

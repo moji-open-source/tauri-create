@@ -27,4 +27,16 @@ export const config = {
       description: 'Svelte With Typescript',
     },
   },
+  'vue-ts': {
+    renameFile: {
+      '_gitignore': '.gitignore',
+      '_tsconfig.json': 'tsconfig.json',
+      '_tsconfig.node.json': 'tsconfig.node.json',
+    },
+    prompt: {
+      title: 'Vue With Typescript',
+      value: 'vue-ts',
+      description: 'Vue With Typescript',
+    },
+  },
 } as Record<string, Configuration>

@@ -53,6 +53,7 @@ Currently supported template presets include:
 
 - `nextjs-ts`
 - `svelte-ts`
+- `vue-ts`
 
 ## Matter
 
