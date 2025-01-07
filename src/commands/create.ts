@@ -69,7 +69,6 @@ runCli(async () => {
             {
               title: 'Cancel operation',
               value: 'no',
-
             },
             {
               title: 'Remove existing files and continue',
@@ -130,12 +129,12 @@ runCli(async () => {
   process.exit(0)
 })
 
-function getTemplateDir(tem: string) {
+function getTemplateDir(template: string) {
   return path.resolve(
     fileURLToPath(import.meta.url),
     '../../..',
     'templates',
-    tem,
+    template,
   )
 }
 
