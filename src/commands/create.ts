@@ -1,5 +1,7 @@
 import type { Choice } from '@posva/prompts'
+
 import type { Configuration } from '../type'
+
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
