@@ -6,9 +6,9 @@ export const config = {
       '_gitignore': '.gitignore',
       '_lintstagedrc.mjs': '.lintstagedrc.mjs',
       '_eslint.config.mjs': 'eslint.config.mjs',
-      '_tailwind.config.ts': 'tailwind.config.ts',
       '_tsconfig.json': 'tsconfig.json',
       '_pre-commit-config.yaml': '.pre-commit-config.yaml',
+      '_editorconfig': '.editorconfig',
     },
     prompt: {
       title: 'Nextjs With Typescript',
